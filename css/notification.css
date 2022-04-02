@@ -95,7 +95,7 @@
 
 .alertHead {
   background-color: var(--secondary);
-  color: #fff;
+  color: var(--txt1);
   padding: 12px;
   border-radius: 3px;
 }

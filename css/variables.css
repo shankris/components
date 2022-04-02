@@ -7,7 +7,9 @@
   --bg1: #d4d4d4;
   --bg2: #dfdfdf;
 
-  --txt1: #555555;
+  --secondary: #acacac;
+
+  --txt1: #151515;
   --txt2: #0e0e0e;
   --txt3: rgb(218, 218, 218);
 
@@ -48,7 +50,7 @@
 
 .darkmode {
   --bg1: #414141;
-  --bg2: #2f2f2f;
+  --bg2: #293037;
 
   --txt1: #c2c2c2;
   --txt2: #b3b3b3;
