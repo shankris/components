@@ -49,7 +49,7 @@
     <!-- Notification Begins -->
 
     <div id="notiAlert" class="alert_msg box">
-      <div class="alertHead">Alerts</div>
+      <div class="alertHead">Alerts <a href="#" onClick="showNotifications()"><span class="close">+</span></a></div>
       <div class="alert_msgs">
         <div class="alert_msg_item">
           <div class="alert-msg_icon"><img src="img/notification/PDF.png" class="alert_icon"></div>
@@ -125,11 +125,13 @@
 
       </div>
 
-      <div class="alert_foot"><a href="">View all alert messages</a></div>
+      <div class="alert_foot"><a href="#">View all alert messages</a></div>
+    </div>
     </div>
 
 
-    </div>
+    <div id="notiBg" onClick="showNotifications()"></div>
+
     <!-- Notification Ends -->
 
 
