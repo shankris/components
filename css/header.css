@@ -1,0 +1,20 @@
+header .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 160px;
+  height: 40px;
+  background-color: rgb(116, 116, 116);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+ul li {
+  margin: 0 20px;
+}

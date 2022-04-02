@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontStack);
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg1);
+  height: 100vh;
+  font-size: 1.6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #203060;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:active {
+  color: black;
+}
+
+a:visited:not(.itemFooter li a),
+a:visited:not(.ul li a) {
+  color: purple;
+}

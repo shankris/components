@@ -1,0 +1,38 @@
+header {
+  min-height: var(--headerHeight);
+  background: var(--headerColor);
+  color: var(--headerTxt)
+}
+
+.content {
+  width: var(--pageWidth);
+  max-width: var(--maxPageWidth);
+  margin: 10px auto 10px;
+}
+
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.content h1 {
+  font-size: 40px;
+}
+
+.content h2 {
+  font-size: 34px;
+}
+
+
+footer {
+  min-height: var(--footerHeight);
+  background: var(--footerColor);
+  color: var(--footerTxt);
+  margin-top: auto;
+}
