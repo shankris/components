@@ -48,9 +48,15 @@
 
 .darkmode {
   --bg1: #414141;
+  --bg2: #2f2f2f;
+
+  --txt1: #c2c2c2;
+  --txt2: #b3b3b3;
 
   --header: rgb(183, 183, 183);
   --accent: #6d6d6d;
+
+  --secondary: #225082;
 
   --headerColor: var(--accent);
   --footerColor: var(--accent);

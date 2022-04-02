@@ -30,6 +30,10 @@ header {
   font-size: 34px;
 }
 
+.content .subHead {
+  color: rgb(122, 122, 122);
+}
+
 
 footer {
   min-height: var(--footerHeight);

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification</title>
+  <script src="js/darkMode.js" defer></script>
+  <script src="js/notification.js" defer></script>
+
+  <style>
+    @import "css/variables.css";
+    @import "css/generic.css";
+    @import "css/layout.css";
+    @import "css/header.css";
+
+    @import "css/notification.css";
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="content">
+      <div class="logo"></div>
+      <ul>
+        <li><a href="index.htm">Home</a></li>
+        <li>Services</li>
+        <li>
+          <div class="noti">
+            <a href="#" onClick="showNotifications()"><img src="img/bell.png" class="notification">
+              <div class="badge">5</div>
+            </a>
+          </div>
+        </li>
+        <li><img src="img/darkMode.png" id="dark-mode-toggle" class="dark-mode-toggle darkMode IcondarkMode"></li>
+      </ul>
+    </div>
+  </header>
+  <article>
+    <div class="content">
+      <h2>Notification</h2>
+      <div class="subHead">Text notification similar to YouTube</div>
+    </div>
+
+
+
+    <!-- Notification Begins -->
+
+    <div id="notiAlert" class="alert_msg box">
+      <div class="alertHead">Alerts</div>
+      <div class="alert_msgs">
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/PDF.png" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> New user policy is now available for download</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">10 minutes ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user3.jpg" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">Yesterday</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user4.jpg" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">2 days ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user2.jfif" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">3 days ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user1.jfif" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">4 days ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user3.jpg" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">4 days ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user4.jpg" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">5 days ago</div>
+          </div>
+        </div>
+
+        <div class="alert_msg_item">
+          <div class="alert-msg_icon"><img src="img/user2.jfif" class="alert_icon"></div>
+          <div class="alert_msg_content">
+            <div class="alert_msg_head"> Review of section 10 has been completed by John Doe</div>
+            <!-- <div class="alert_msg_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, hic. Officiis eos harum recusandae sit cum, porro quod magnam magni.</div> -->
+            <div class="alert_msg_date">6 days ago</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="alert_foot"><a href="">View all alert messages</a></div>
+    </div>
+
+
+    </div>
+    <!-- Notification Ends -->
+
+
+
+  </article>
+  <footer>
+    <div class="content">Footer</div>
+  </footer>
+</body>
+
+</html>
