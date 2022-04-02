@@ -35,7 +35,7 @@ a:active {
   color: black;
 }
 
-a:visited:not(.itemFooter li a),
-a:visited:not(.ul li a) {
-  color: purple;
-}
+/* a:visited:not(.itemFooter li a), */
+/* a:visited:not(header .ul li a) { */
+/* color: purple; */
+/* } */

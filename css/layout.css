@@ -17,8 +17,9 @@ header {
 .content h4,
 .content h5,
 .content h6 {
+  padding-top: 40px;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--header);
 }
 
 .content h1 {

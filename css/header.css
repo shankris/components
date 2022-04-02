@@ -18,3 +18,15 @@ ul {
 ul li {
   margin: 0 20px;
 }
+
+header a {
+  color: #fff;
+}
+
+.IcondarkMode {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgb(139, 139, 139);
+  border-radius: 50%;
+
+}

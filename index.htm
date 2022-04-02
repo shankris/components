@@ -7,11 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notification</title>
 
+  <script src="js/darkMode.js" defer></script>
+
   <style>
     @import "css/variables.css";
     @import "css/generic.css";
     @import "css/layout.css";
     @import "css/header.css";
+
+
+    @import "css/template.css";
+    /* styles for just this page - do not include elswhere  */
   </style>
 
 </head>
@@ -21,16 +27,22 @@
     <div class="content">
       <div class="logo"></div>
       <ul>
-        <li><a href="index.htm">Home</a></li>
+        <li>Home</li>
         <li>Services</li>
         <li>About</li>
-        <li>Contact</li>
+        <li><img src="img/darkMode.png" id="dark-mode-toggle" class="dark-mode-toggle darkMode IcondarkMode"></li>
       </ul>
     </div>
   </header>
   <article>
     <div class="content">
-      <h2>Template - Sample Page Header</h2>
+      <h2>Components</h2>
+
+      <div class="list">
+        <a href="template.htm" data-tooltip="Reusable Template with top menu + Fixed bottom footer">Basic Template</a>
+        <a href="notification.htm" data-tooltip="Alert Notifications, similar to YouTube">Notification</a>
+      </div>
+
     </div>
   </article>
   <footer>
