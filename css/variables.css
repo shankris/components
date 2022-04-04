@@ -16,7 +16,12 @@
   --header: rgb(63, 63, 63);
   --accent: #343f5f;
 
-
+  --cardBg: #e6e6e6;
+  --card-txt: #838383;
+  --card-title: #203060;
+  --card-tag: #f0f0f0;
+  --card-user-txt: #7287c4;
+  --card-star: rgb(255, 255, 255);
   /* layout --- */
 
   --pageWidth: 90%;
@@ -62,4 +67,11 @@
 
   --headerColor: var(--accent);
   --footerColor: var(--accent);
+
+  --cardBg: rgb(198, 198, 198);
+  --card-txt: #5e5e5e;
+  --card-title: #203060;
+  --card-tag: #e3e3e3;
+  --card-user-txt: #3c4d80;
+  --card-star: #aaa;
 }
