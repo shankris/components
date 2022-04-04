@@ -2,9 +2,9 @@
   display: -ms-grid;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   overflow: auto;
-  width: 95%;
+  width: 96%;
   max-width: 1600px;
   /* in cellphone mode set min widht to 95% and margin auto  */
 }
@@ -22,14 +22,14 @@
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .card_container {
-    grid-template-columns: repeat(1fr);
+    grid-template-columns: 1fr;
     margin: 0 auto;
   }
 
   .card {
-    max-width: 100%;
+    max-width: 580px;
   }
 }
 
