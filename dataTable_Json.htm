@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable from JSON</title>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    * {
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <table id="example" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#example').DataTable({
+        "ajax": 'json/data.json',
+        "lengthChange": false,
+        "responsive": true,
+        columnDefs: [
+          { targets: [0, 1, 2, 3, 4], className: 'dt-left' },
+          { targets: [5], className: 'dt-right' },
+        ],
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

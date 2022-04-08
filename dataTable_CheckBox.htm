@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable with Checkboxes</title>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <script src="js/dataTables.select.min.js"></script>
+  <link rel="stylesheet" href="js/dataTables.select.min.js">
+
+
+  <style>
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    * {
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <!-- <h3><a href="http://www.gyrocode.com/articles/jquery-datatables-how-to-add-a-checkbox-column/">jQuery DataTables – How
+      to add a checkbox column</a></h3>
+  <a href="http://www.gyrocode.com/articles/jquery-datatables-how-to-add-a-checkbox-column/">See full article on
+    Gyrocode.com</a>
+  <hr><br> -->
+
+  <div class="container">
+
+
+
+    <form id="frm-example" action="/path/to/your/script" method="POST">
+
+      <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th><input name="select_all" value="1" id="example-select-all" type="checkbox" /></th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <!-- <tfoot>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </tfoot> -->
+      </table>
+
+      <p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
+
+      <p><button>Submit</button></p>
+
+      <b>Data submitted to the server:</b><br>
+      <pre id="example-console">
+  </pre>
+    </form>
+  </div>
+
+
+  <script>
+
+
+    $(document).ready(function () {
+      var table = $('#example').DataTable({
+        'ajax': 'json/arrays_id.json',
+        "lengthChange": false,
+        'columnDefs': [{
+          'targets': 0,
+          'searchable': false,
+          'orderable': false,
+          'className': 'dt-body-center',
+          'render': function (data, type, full, meta) {
+            return '<input type="checkbox" name="id[]" value="'
+              + $('<div/>').text(data).html() + '">';
+          }
+        }],
+        'order': [1, 'asc']
+      });
+
+      // Handle click on "Select all" control
+      $('#example-select-all').on('click', function () {
+        // Check/uncheck all checkboxes in the table
+        var rows = table.rows({ 'search': 'applied' }).nodes();
+        $('input[type="checkbox"]', rows).prop('checked', this.checked);
+      });
+
+      // Handle click on checkbox to set state of "Select all" control
+      $('#example tbody').on('change', 'input[type="checkbox"]', function () {
+        // If checkbox is not checked
+        if (!this.checked) {
+          var el = $('#example-select-all').get(0);
+          // If "Select all" control is checked and has 'indeterminate' property
+          if (el && el.checked && ('indeterminate' in el)) {
+            // Set visual state of "Select all" control 
+            // as 'indeterminate'
+            el.indeterminate = true;
+          }
+        }
+      });
+
+      $('#frm-example').on('submit', function (e) {
+        var form = this;
+
+        // Iterate over all checkboxes in the table
+        table.$('input[type="checkbox"]').each(function () {
+          // If checkbox doesn't exist in DOM
+          if (!$.contains(document, this)) {
+            // If checkbox is checked
+            if (this.checked) {
+              // Create a hidden element 
+              $(form).append(
+                $('<input>')
+                  .attr('type', 'hidden')
+                  .attr('name', this.name)
+                  .val(this.value)
+              );
+            }
+          }
+        });
+
+        // FOR TESTING ONLY
+
+        // Output form data to a console
+        $('#example-console').text($(form).serialize());
+        console.log("Form submission", $(form).serialize());
+
+        // Prevent actual form submission
+        e.preventDefault();
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>
