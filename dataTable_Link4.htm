@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <table width="100%" class="table table-striped table-bordered table-hover dataTable" id="dataTables-example">
+      <thead>
+        <tr style="text-align: right;">
+          <th>id</th>
+          <th>user</th>
+          <th>status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+    $('#dataTables-example').DataTable({
+
+      "bDestroy": true,
+      "deferRender": true,
+      "columnDefs": [
+        {
+          targets: 0,
+          render: function (data, type, row, meta) {
+            if (type === 'display') {
+              return $('<a>')
+                .attr('href', data)
+                .text(data)
+                .wrap('<div></div>')
+                .parent()
+                .html();
+
+            } else {
+              return data;
+            }
+          }
+        }
+      ]
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>

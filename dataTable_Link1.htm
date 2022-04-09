@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <table id="table" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Link</th>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+    $(document).ready(function () {
+      var payload = [["John", "14", "1"], ["Doe", "15", "2"]];
+
+      var table = $('#table').DataTable({
+        data: payload,
+        columnDefs: [
+          {
+            targets: -1, // Start with the last
+            render: function (data, type, row, meta) {
+              if (type === 'display') {
+                data = '<a href="profile.php?id=' + encodeURIComponent(data) + '">View Profile</a>';
+              }
+              return data;
+            }
+          }
+        ]
+      });
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

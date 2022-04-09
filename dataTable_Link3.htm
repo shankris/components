@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <table id="example" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+      </thead>
+    </table>
+
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+
+    $(document).ready(function () {
+      var data = [
+        ["5555", "07/17/2010", "RCC Saturday Open", "E10", "Harris,  Fred", "1900", "Nikolayev, Igor (FM)", "2367", "1-0"],
+        ["5554", "07/17/2010", "RCC Saturday Open", "B01", "Nikolayev, Igor (FM)", "2367", "Motroni, Richard", "1728", "1-0"]
+      ];
+
+      var table = $('#example').DataTable({
+        data: data,
+        columnDefs: [
+          {
+            targets: 0,
+            render: function (data, type, row, meta) {
+              if (type === 'display') {
+                data = '<a href="basic.php?game=' + encodeURIComponent(data) + '">' + data + '</a>';
+              }
+
+              return data;
+            }
+          }
+        ]
+      });
+
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>

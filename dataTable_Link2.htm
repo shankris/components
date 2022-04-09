@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h3>jQuery DataTables: Render cell content</h3>
+    <!-- <a href="https://www.gyrocode.com/articles/tag/jquery-datatables/">See more articles about jQuery DataTables</a> on <a
+  href="https://www.gyrocode.com/articles/">Gyrocode.com</a>
+<hr> -->
+
+    <table class="display" id="example">
+      <thead>
+        <tr>
+          <th>Information</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+    </table>
+
+
+    <!-- <hr><a href="https://www.gyrocode.com/articles/tag/jquery-datatables/">See more articles about jQuery DataTables</a> on
+<a href="https://www.gyrocode.com/articles/">Gyrocode.com</a> -->
+
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+    var responseObj = [
+      { "information": "A1", "weblink": "http://www.microsoft.com" },
+      { "information": "A2", "weblink": "http://www.yahoo.com" },
+      { "information": "A3", "weblink": "http://www.google.com" },
+      { "information": "A4", "weblink": "http://www.duckduckgo.com" }
+    ];
+
+    $('#example').dataTable({
+      "data": responseObj,
+      "columns": [
+        { "data": "information" },
+        {
+          "data": "weblink",
+          "render": function (data, type, row, meta) {
+            if (type === 'display') {
+              data = '<a href="' + data + '">' + data + '</a>';
+            }
+
+            return data;
+          }
+        }
+      ]
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>

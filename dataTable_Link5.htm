@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h3>jQuery DataTables</h3>
+
+    <table id="example" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+    <form id="frm-main" action="" method="POST">
+      <input type="hidden" name="name" value="">
+    </form>
+
+
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+
+    $(document).ready(function () {
+      var table = $('#example').DataTable({
+        ajax: {
+          url: 'json/data.json'
+        },
+        columnDefs: [
+          {
+            targets: 0,
+            render: function (data, type, row, meta) {
+              if (type === 'display') {
+                data = '<a class="link-post" href="https://www.google.com/">' + data + '</a>';
+              }
+
+              return data;
+            }
+          }
+        ]
+      });
+
+      // Handle click on link in the table
+      $('#example').on('click', '.link-post', function (e) {
+        e.preventDefault();
+
+        // Get row data
+        var data = table.row($(this).closest('tr')).data();
+
+        var form = $('#frm-main').get(0);
+
+        // Update form action URL if needed
+        form['action'] = this.href;
+
+        // Set required form parameters
+        form['name'].value = data[0];
+
+        // Submit form
+        form.submit();
+      });
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>

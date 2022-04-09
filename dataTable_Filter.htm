@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datatable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+
+    table.dataTable.no-footer {
+      border-bottom: none;
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+      position: absolute;
+      top: -3.3em;
+      right: 0;
+    }
+
+    #nesgc-inventory {
+      border: 1px solid #ddd;
+    }
+
+    #nesgc-inventory thead th {
+      background-color: #eee;
+    }
+
+    #nesgc-inventory thead th:hover {
+      background-color: #337ab7;
+      color: #fff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <ul class="nav nav-tabs">
+          <li id="filter1" class="active">All</li>
+          <li id="filter2" role="presentation" data-column="1">Geriatrics</li>
+          <li id="filter3" role="presentation" data-column="9"><a href="#">Semi-Annual</a></li>
+        </ul>
+
+        <table id="nesgc-inventory" class="table table-striped" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>Learning Topic</th>
+              <th>Title</th>
+              <th>Oranization</th>
+              <th>Resource Type</th>
+              <th>Audience</th>
+              <th>Certifcate Granting / Accredited</th>
+              <th>Link</th>
+              <th>Cost</th>
+              <th>Frequency</th>
+              <th>Comment</th>
+              <th>Local File</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Geriatrics</td>
+              <td>North East Geriatric Medicine Refresher Day</td>
+              <td>North East Specialized Geriatric Centre</td>
+              <td>Conference</td>
+              <td>All HCP</td>
+              <td>Accredited</td>
+              <td><a href="#">Conference Page</a></td>
+              <td>$100.00</td>
+              <td>Annual</td>
+              <td>Some comments.</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>Geriatrics</td>
+              <td>A Different Conference</td>
+              <td>North East Specialized Geriatric Centre</td>
+              <td>Conference</td>
+              <td>Professionals</td>
+              <td>Accredited</td>
+              <td><a href="#">Conference Page</a></td>
+              <td>$50.00</td>
+              <td>Semi-Annual</td>
+              <td>Some different comments.</td>
+              <td><a href="#">PDF Flyer</a></td>
+            </tr>
+            <tr>
+              <td>Geriatrics</td>
+              <td>Another Conference</td>
+              <td>North East Specialized Geriatric Centre</td>
+              <td>Conference</td>
+              <td>Public</td>
+              <td>Accredited</td>
+              <td><a href="#">Conference Page</a></td>
+              <td>Free</td>
+              <td>Annual</td>
+              <td>Some other different comments.</td>
+              <td><a href="#">PDF Flyer</a></td>
+            </tr>
+            <tr>
+              <td>MS</td>
+              <td>MS Meetup</td>
+              <td>MS Society</td>
+              <td>Meetup</td>
+              <td>Public</td>
+              <td>N/A</td>
+              <td><a href="#">Meetup Page</a></td>
+              <td>Free</td>
+              <td>Annual</td>
+              <td>Meetup comments.</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script>
+
+    $(document).ready(function () {
+
+      var table = $('#nesgc-inventory').DataTable({
+        "order": [[3, "desc"]],
+        "paging": false,
+        "info": false,
+        "responsive": true,
+      });
+
+      $(".dataTables_wrapper").addClass("form-inline");
+      $(".dataTables_filter").addClass("form-group");
+      $(".dataTables_filter input").addClass("form-control");
+
+      $('#filter1').on('click', function () {
+        resetTable();
+        table.draw();
+      });
+
+      $('#filter2').on('click', function () {
+        resetTable();
+        table
+          .search('')
+          .column($(this).data("column") - 1)
+          .search($(this).text())
+          .draw();
+      });
+
+      $('#filter3').on('click', function () {
+        resetTable();
+        table
+          .search('')
+          .column($(this).data("column") - 1)
+          .search($(this).text())
+          .draw();
+      });
+
+      function resetTable() {
+        table
+          .search('')
+          .columns()
+          .search('')
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataTable Link</title>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <style>
+    body {
+      margin: 1em;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover" id="user-table">
+          <thead>
+            <tr data-href="/runbook">
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Nane</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- /.table-responsive -->
+    </div>
+    <!-- /.panel-body -->
+
+
+    <form id="frm-main" action="" method="POST">
+      <input type="hidden" name="name" value="">
+    </form>
+
+
+  </div>
+
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+
+    $(document).ready(function () {
+      $('#user-table').dataTable({
+        // "bProcessing": true,
+        // "sAjaxSource": "json/user1.json",
+        "sAjaxSource": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/massive.json",
+        "aoColumns": [
+          { "data": "id" },
+          { "data": "firstName" },
+          { "data": "lastName" },
+          { "data": "userName" }
+        ]
+      });
+    });
+
+  </script>
+
+
+</body>
+
+</html>
