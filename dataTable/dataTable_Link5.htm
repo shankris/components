@@ -27,7 +27,7 @@
 
   <div class="container">
 
-    <h3>jQuery DataTables</h3>
+    <h3>jQuery DataTable Link</h3>
 
     <table id="example" class="display" cellspacing="0" width="100%">
       <thead>
@@ -40,16 +40,6 @@
           <th>Salary</th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Extn.</th>
-          <th>Start date</th>
-          <th>Salary</th>
-        </tr>
-      </tfoot>
     </table>
 
 
@@ -71,13 +61,14 @@
       var table = $('#example').DataTable({
         ajax: {
           url: 'json/data.json'
+          // "sAjaxSource": "json/user1.json",
         },
         columnDefs: [
           {
             targets: 0,
             render: function (data, type, row, meta) {
               if (type === 'display') {
-                data = '<a class="link-post" href="https://www.google.com/">' + data + '</a>';
+                data = '<a class="link-post" href="https://www.abc.com/id=' + data + '">' + data + '</a>';
               }
 
               return data;
