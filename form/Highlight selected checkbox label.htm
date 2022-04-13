@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Content-Style-Type" content="text/css">
+<title>Example</title>
+
+<script type="text/javascript">
+
+function radioBtn(val) {
+
+	var elements = document.getElementsByName(val);
+
+	for (var i = 0, l = elements.length; i < l; i++)
+	{
+		if (elements[i].checked)
+		{elements[i].parentNode.className = "highlight"; }
+		else
+		{elements[i].parentNode.className = ""; }
+	}
+
+}
+
+</script>
+
+<style>
+body { font-family:arial, verdana; font-size:.8em;}
+  form {margin:auto; padding:1em; width:10em}
+  fieldset {padding:10px 20px 20px 20px; width:460px; border:1px solid #aaa; margin:0 auto;}
+  label {display:block; text-align:left; padding:6px 2px 10px 20px; width:420px; background:#f9f9f9; margin:4px; display: block; text-indent: -14px;}
+  label:hover{background:#eee;  -webkit-transition: .8s; transition: .8s;}
+  label.highlight {background:#feffe6; -webkit-transition: .8s; transition: .8s;}
+  label input[type="checkbox"],  input[type="radio"] {margin: 4px 4px 4px 4px; padding:10px;}
+  .txt {font-size:.9em; color:#aaa; padding:6px 10px 10px 0px; margin:10px;}
+/* input[type="radio"], input[type="checkbox"] { outline: none;} */
+
+  button {display:block; margin:1em auto 0}
+  .myRadioBtn:checked + .box {background-color:red;}
+</style>
+
+</head>
+<body>
+<form action="index.php" method="get">
+
+<fieldset>
+<legend>Select Filters to be applied</legend>
+
+<p> <b>Text box choics</b>
+<label><input type="checkbox" name="box1" onclick="this.parentNode.className = this.checked ? 'highlight' : ''">Option 1<br><span class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></label>
+<label><input type="checkbox" name="box2" onclick="this.parentNode.className = this.checked ? 'highlight' : ''">Option 2<br><span class="txt">Consectetur adipisicing elit</span></label>
+<label><input type="checkbox" name="box3" onclick="this.parentNode.className = this.checked ? 'highlight' : ''">Option 3<br><span class="txt">Elit, sed do eiusmod tempor</span></label>
+<label><input type="checkbox" name="box4" onclick="this.parentNode.className = this.checked ? 'highlight' : ''">Option 4<br><span class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></label>
+
+
+<p> <b>Radio Button Choices</b>
+<label><input type="radio" name="box" onClick="radioBtn(this.name);" value="Choice 1">Choice 1</label>
+<label><input type="radio" name="box" onClick="radioBtn(this.name);" value="Choice 2">Choice 2</label>
+<label><input type="radio" name="box" onClick="radioBtn(this.name);" value="Choice 3">Choice 3</label>
+<label><input type="radio" name="box" onClick="radioBtn(this.name);" value="Choice 4">Choice 4</label>
+
+<button type="submit" style="margin: 20px 10px 10px 30px; padding:2px 20px;">Filter</button>
+
+</fieldset>
+
+
+
+
+
+</form>
+</body>
+</html>
