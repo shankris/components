@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Filter</title>
+
+  <style>
+    .btn-container {
+      margin: auto;
+      width: 70%;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      padding: 4rem 0;
+    }
+
+    .btn {
+      padding: 1rem 3rem;
+      border: 1px solid royalblue;
+      margin: 0 5px;
+      font-size: 1rem;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+
+    .container {
+      margin: auto;
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-rows: repeat(4, 350px);
+      column-gap: 10px;
+      row-gap: 10px;
+      color: #fff;
+    }
+
+    .filtered-div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    [data-car] {
+      background-color: coral;
+    }
+
+    [data-color] {
+      background-color: cornflowerblue;
+    }
+
+    [data-movie] {
+      background-color: crimson;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .remove {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <div class="btn-container">
+    <button class="btn show-all">show all</button>
+    <button class="btn car">cars</button>
+    <button class="btn movie">movies</button>
+    <button class="btn color">colors</button>
+  </div>
+
+  <div class="container">
+    <div class="filtered-div" id="color" data-color="color">red</div>
+    <div class="filtered-div" id="car" data-car="car">bmw m4</div>
+    <div class="filtered-div" id="car" data-car="car">audi r8</div>
+    <div class="filtered-div" id="color" data-color="color">blue</div>
+    <div class="filtered-div" id="movie" data-movie="movie">the wolf of Wall street</div>
+    <div class="filtered-div" id="movie" data-movie="movie">the fast and the furious</div>
+    <div class="filtered-div" id="color" data-color="color">red</div>
+    <div class="filtered-div" id="car" data-car="car">bmw m4</div>
+    <div class="filtered-div" id="car" data-car="car">audi r8</div>
+    <div class="filtered-div" id="color" data-color="color">blue</div>
+    <div class="filtered-div" id="movie" data-movie="movie">the wolf of Wall street</div>
+    <div class="filtered-div" id="movie" data-movie="movie">the fast and the furious</div>
+  </div>
+
+  <script>
+
+    const showAllTab = document.querySelector('.show-all')
+    const carTab = document.querySelector('.car')
+    const movieTab = document.querySelector('.movie')
+    const colorTab = document.querySelector('.color')
+
+    const allFilteredDivs = document.querySelectorAll('.filtered-div')
+
+    // Turns node list into an array
+    const allFilteredDivsArray = Array.from(allFilteredDivs)
+
+    showAllTab.addEventListener('click', showAll)
+    function showAll() {
+      allFilteredDivsArray.forEach(div => {
+        div.classList.remove('remove')
+        div.classList.add('show')
+      })
+    }
+
+    carTab.addEventListener('click', showCars)
+    function showCars() {
+      allFilteredDivsArray.forEach(div => {
+        div.classList.remove('remove')
+
+        if (!div.dataset.car) {
+          div.classList.add('remove')
+        }
+
+      })
+    }
+
+    movieTab.addEventListener('click', showMovies)
+    function showMovies() {
+      allFilteredDivsArray.forEach(div => {
+        div.classList.remove('remove')
+
+        if (!div.dataset.movie) {
+          div.classList.add('remove')
+        }
+
+      })
+    }
+
+    colorTab.addEventListener('click', showColors)
+    function showColors() {
+      allFilteredDivsArray.forEach(div => {
+        div.classList.remove('remove')
+
+        if (!div.dataset.color) {
+          div.classList.add('remove')
+        }
+
+      })
+    }
+
+
+  </script>
+
+</body>
+
+</html>

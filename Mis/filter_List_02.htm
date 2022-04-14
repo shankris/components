@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter List</title>
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+  <div class="container-fluid bg-primary py-5 text-white">
+    <h1 class="text-capitalize text-center">filterable list</h1>
+    <p class="text-center h5">
+      Search for one of the names and the filter will start removing the ones that dont match the query.
+    </p>
+  </div>
+
+
+  <div class="container mt-5">
+    <input type="text" class="form-control mb-5 p-4" placeholder="Search name" id="search-input">
+    <ul class="list-group list-group-flush text-primary h5">
+      <li class="list-group-item text-capitalize p-4">adam</li>
+      <li class="list-group-item text-capitalize p-4 bg-light">ben</li>
+      <li class="list-group-item text-capitalize p-4">catherine</li>
+      <li class="list-group-item text-capitalize p-4 bg-light">danny</li>
+      <li class="list-group-item text-capitalize p-4">ethan</li>
+      <li class="list-group-item text-capitalize p-4 bg-light">frank</li>
+      <li class="list-group-item text-capitalize p-4">greg</li>
+      <li class="list-group-item text-capitalize p-4 bg-light">holly</li>
+      <li class="list-group-item text-capitalize p-4">issac</li>
+    </ul>
+  </div>
+
+
+  <script>
+
+
+    // Grabbing and adding an event listener to the input. Then calling the filterList function
+    document.querySelector('#search-input').addEventListener('input', filterList)
+
+    function filterList() {
+      // Declaring variables
+      const searchInput = document.querySelector('#search-input')
+      const filter = searchInput.value.toLowerCase()
+      const listItems = document.querySelectorAll('.list-group-item')
+
+      // Looping through all items with forEach
+      listItems.forEach((item) => {
+        let text = item.textContent
+        if (text.toLowerCase().includes(filter.toLowerCase())) {
+          item.style.display = ''
+        } else {
+          item.style.display = 'none'
+        }
+      })
+    }
+
+    filterList()
+
+
+  </script>
+
+</body>
+
+</html>

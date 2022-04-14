@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <script src="../js/jquery-3.5.1.js"></script>
+
+  <style>
+    body {
+      margin: 20px 20px auto;
+    }
+
+    .well {
+      margin: 30px auto;
+    }
+
+    #list {
+      list-style-type: none;
+      -webkit-column-count: 6;
+      /* Chrome, Safari, Opera */
+      -moz-column-count: 6;
+      /* Firefox */
+      column-count: 6;
+      font-size: 16pt;
+    }
+
+    #list li {
+      vertical-align: middle;
+      margin: 10px;
+    }
+
+    #list a {
+      padding: 8px 12px 8px 12px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    #list a:hover {
+      background-color: #666699;
+      border-radius: 4px;
+      color: #fff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1>Live Filter</h1>
+        <p class="lead">Type in search box and get filtered result instantly. </p>
+        <p>Hint: The items are tagged. Try searching by name, category, and more. Example: "social", "version control",
+          video" or "im".</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <input id="searchbox" class="search form-control" placeholder="Search" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="row">
+            <ul id="list" class="well">
+              <li role="item" data-metadata='{"name": "500px","category": "brand","tag":["design"]}'><a href=""><i
+                    class="fa fa-500px"></i></a></li>
+              <li role="item" data-metadata='{"name": "adn","category": "brand"}'><a href=""><i
+                    class="fa fa-adn"></i></a>
+              </li>
+              <li role="item" data-metadata='{"name": "amazon","category": "brand","tag": ["shopping","ecommerce"]}'><a
+                  href=""><i class="fa fa-amazon"></i></a></li>
+              <li role="item" data-metadata='{"name": "android","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-android"></i></a></li>
+              <li role="item" data-metadata='{"name": "angellist","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-angellist"></i></a></li>
+              <li role="item" data-metadata='{"name": "apple","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-apple"></i></a></li>
+              <li role="item" data-metadata='{"name": "behance","category": "brand","tag": ["design","social"]}'><a
+                  href=""><i class="fa fa-behance"></i></a></li>
+              <li role="item" data-metadata='{"name": "behance-square","category": "brand","tag": ["design","social"]}'>
+                <a href=""><i class="fa fa-behance-square"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "bitbucket","category": "brand","tag": ["version control","dev"]}'>
+                <a href=""><i class="fa fa-bitbucket"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "bitbucket-square","category": "brand","tag": ["version control","dev"]}'><a
+                  href=""><i class="fa fa-bitbucket-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "bitcoin","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-bitcoin"></i></a></li>
+              <li role="item" data-metadata='{"name": "black-tie","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-black-tie"></i></a></li>
+              <li role="item" data-metadata='{"name": "btc","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-btc"></i></a></li>
+              <li role="item" data-metadata='{"name": "buysellads","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-buysellads"></i></a></li>
+              <li role="item" data-metadata='{"name": "amex","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-cc-amex"></i></a></li>
+              <li role="item" data-metadata='{"name": "diners-club","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-cc-diners-club"></i></a></li>
+              <li role="item" data-metadata='{"name": "discover","category": "brand","tag": ["financial"]}'><a
+                  href=""><i class="fa fa-cc-discover"></i></a></li>
+              <li role="item" data-metadata='{"name": "jcb","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-cc-jcb"></i></a></li>
+              <li role="item" data-metadata='{"name": "mastercard","category": "brand","tag": ["financial"]}'><a
+                  href=""><i class="fa fa-cc-mastercard"></i></a></li>
+              <li role="item" data-metadata='{"name": "paypal","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-cc-paypal"></i></a></li>
+              <li role="item" data-metadata='{"name": "stripe","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-cc-stripe"></i></a></li>
+              <li role="item" data-metadata='{"name": "visa","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-cc-visa"></i></a></li>
+              <li role="item" data-metadata='{"name": "chrome","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-chrome"></i></a></li>
+              <li role="item" data-metadata='{"name": "codepen","category": "brand","tag": ["dev"]}'><a href=""><i
+                    class="fa fa-codepen"></i></a></li>
+              <li role="item" data-metadata='{"name": "connectdevelop","category": "brand","tag": ["dev","social"]}'><a
+                  href=""><i class="fa fa-connectdevelop"></i></a></li>
+              <li role="item" data-metadata='{"name": "contao","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-contao"></i></a></li>
+              <li role="item" data-metadata='{"name": "css3","category": "brand","tag": ["dev"]}'><a href=""><i
+                    class="fa fa-css3"></i></a></li>
+              <li role="item" data-metadata='{"name": "dashcube","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-dashcube"></i></a></li>
+              <li role="item" data-metadata='{"name": "delicious","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-delicious"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "deviantart","category": "brand","tag": ["design","social","image"]}'><a
+                  href=""><i class="fa fa-deviantart"></i></a></li>
+              <li role="item" data-metadata='{"name": "digg","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-digg"></i></a></li>
+              <li role="item" data-metadata='{"name": "dribbble","category": "brand","tag": ["design","social"]}'><a
+                  href=""><i class="fa fa-dribbble"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "dropbox","category": "brand","tag": ["version control","cloud"]}'>
+                <a href=""><i class="fa fa-dropbox"></i></a>
+              </li>
+              <li role="item" data-metadata='{"name": "drupal","category": "brand","tag": ["dev","cms"]}'><a href=""><i
+                    class="fa fa-drupal"></i></a></li>
+              <li role="item" data-metadata='{"name": "empire","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-empire"></i></a></li>
+              <li role="item" data-metadata='{"name": "expeditedssl","category": "brand","tag": ["dev"]}'><a href=""><i
+                    class="fa fa-expeditedssl"></i></a></li>
+              <li role="item" data-metadata='{"name": "facebook","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-facebook"></i></a></li>
+              <li role="item" data-metadata='{"name": "facebook-f","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-facebook-f"></i></a></li>
+              <li role="item" data-metadata='{"name": "facebook-official","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-facebook-official"></i></a></li>
+              <li role="item" data-metadata='{"name": "facebook-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-facebook-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "firefox","category": "brand","tag": ["platform","browser"]}'><a
+                  href=""><i class="fa fa-firefox"></i></a></li>
+              <li role="item" data-metadata='{"name": "flickr","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-flickr"></i></a></li>
+              <li role="item" data-metadata='{"name": "fonticons","category": "brand","tag": ["design"]}'><a href=""><i
+                    class="fa fa-fonticons"></i></a></li>
+              <li role="item" data-metadata='{"name": "forumbee","category": "brand","tag": ["cms"]}'><a href=""><i
+                    class="fa fa-forumbee"></i></a></li>
+              <li role="item" data-metadata='{"name": "foursquare","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-foursquare"></i></a></li>
+              <li role="item" data-metadata='{"name": "ge","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-ge"></i></a></li>
+              <li role="item" data-metadata='{"name": "get-pocket","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-get-pocket"></i></a></li>
+              <li role="item" data-metadata='{"name": "gg","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-gg"></i></a></li>
+              <li role="item" data-metadata='{"name": "gg-circle","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-gg-circle"></i></a></li>
+              <li role="item" data-metadata='{"name": "git","category": "brand","tag": ["version control","dev"]}'><a
+                  href=""><i class="fa fa-git"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "git-square","category": "brand","tag": ["version control","dev"]}'>
+                <a href=""><i class="fa fa-git-square"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "github","category": "brand","tag": ["version control","dev","social"]}'><a
+                  href=""><i class="fa fa-github"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "github-alt","category": "brand","tag": ["version control","dev","social"]}'><a
+                  href=""><i class="fa fa-github-alt"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "github-square","category": "brand","tag": ["version control","dev","social"]}'>
+                <a href=""><i class="fa fa-github-square"></i></a>
+              </li>
+              <li role="item" data-metadata='{"name": "gittip","category": "brand","tag": ["version control","dev"]}'><a
+                  href=""><i class="fa fa-gittip"></i></a></li>
+              <li role="item" data-metadata='{"name": "google","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-google"></i></a></li>
+              <li role="item" data-metadata='{"name": "google-plus","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-google-plus"></i></a></li>
+              <li role="item" data-metadata='{"name": "google-plus-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-google-plus-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "google-wallet","category": "brand","tag": ["financial"]}'><a
+                  href=""><i class="fa fa-google-wallet"></i></a></li>
+              <li role="item" data-metadata='{"name": "gratipay","category": "brand","tag": ["financial"]}'><a
+                  href=""><i class="fa fa-gratipay"></i></a></li>
+              <li role="item" data-metadata='{"name": "hacker-news","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-hacker-news"></i></a></li>
+              <li role="item" data-metadata='{"name": "houzz","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-houzz"></i></a></li>
+              <li role="item" data-metadata='{"name": "html5","category": "brand","tag": ["dev"]}'><a href=""><i
+                    class="fa fa-html5"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "instagram","category": "brand","tag": ["social","media","image"]}'>
+                <a href=""><i class="fa fa-instagram"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "internet-explorer","category": "brand","tag": ["platform","browser"]}'><a
+                  href=""><i class="fa fa-internet-explorer"></i></a></li>
+              <li role="item" data-metadata='{"name": "ioxhost","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-ioxhost"></i></a></li>
+              <li role="item" data-metadata='{"name": "joomla","category": "brand","tag": ["dev","cms"]}'><a href=""><i
+                    class="fa fa-joomla"></i></a></li>
+              <li role="item" data-metadata='{"name": "jsfiddle","category": "brand","tag": ["dev"]}'><a href=""><i
+                    class="fa fa-jsfiddle"></i></a></li>
+              <li role="item" data-metadata='{"name": "lastfm","category": "brand","tag": ["social","media","music"]}'>
+                <a href=""><i class="fa fa-lastfm"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "lastfm-square","category": "brand","tag": ["social","media","music"]}'><a
+                  href=""><i class="fa fa-lastfm-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "leanpub","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-leanpub"></i></a></li>
+              <li role="item" data-metadata='{"name": "linkedin","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-linkedin"></i></a></li>
+              <li role="item" data-metadata='{"name": "linkedin-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-linkedin-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "linux","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-linux"></i></a></li>
+              <li role="item" data-metadata='{"name": "maxcdn","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-maxcdn"></i></a></li>
+              <li role="item" data-metadata='{"name": "meanpath","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-meanpath"></i></a></li>
+              <li role="item" data-metadata='{"name": "medium","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-medium"></i></a></li>
+              <li role="item" data-metadata='{"name": "odnoklassniki","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-odnoklassniki"></i></a></li>
+              <li role="item" data-metadata='{"name": "odnoklassniki-square","category": "brand","tag": [""]}'><a
+                  href=""><i class="fa fa-odnoklassniki-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "opencart","category": "brand","tag": ["shopping","financial"]}'>
+                <a href=""><i class="fa fa-opencart"></i></a>
+              </li>
+              <li role="item" data-metadata='{"name": "openid","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-openid"></i></a></li>
+              <li role="item" data-metadata='{"name": "opera","category": "brand","tag": ["platform","browser"]}'><a
+                  href=""><i class="fa fa-opera"></i></a></li>
+              <li role="item" data-metadata='{"name": "optin-monster","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-optin-monster"></i></a></li>
+              <li role="item" data-metadata='{"name": "pagelines","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-pagelines"></i></a></li>
+              <li role="item" data-metadata='{"name": "paypal","category": "brand","tag": ["financial"]}'><a href=""><i
+                    class="fa fa-paypal"></i></a></li>
+              <li role="item" data-metadata='{"name": "pied-piper","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-pied-piper"></i></a></li>
+              <li role="item" data-metadata='{"name": "pied-piper-alt","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-pied-piper-alt"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "pinterest","category": "brand","tag": ["social","media","image"]}'>
+                <a href=""><i class="fa fa-pinterest"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "pinterest-p","category": "brand","tag": ["social","media","image"]}'><a
+                  href=""><i class="fa fa-pinterest-p"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "pinterest-square","category": "brand","tag": ["social","media","image"]}'><a
+                  href=""><i class="fa fa-pinterest-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "qq","category": "brand","tag": ["social","im"]}'><a href=""><i
+                    class="fa fa-qq"></i></a></li>
+              <li role="item" data-metadata='{"name": "ra","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-ra"></i></a></li>
+              <li role="item" data-metadata='{"name": "rebel","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-rebel"></i></a></li>
+              <li role="item" data-metadata='{"name": "reddit","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-reddit"></i></a></li>
+              <li role="item" data-metadata='{"name": "reddit-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-reddit-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "renren","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-renren"></i></a></li>
+              <li role="item" data-metadata='{"name": "safari","category": "brand","tag": ["platform","browser"]}'><a
+                  href=""><i class="fa fa-safari"></i></a></li>
+              <li role="item" data-metadata='{"name": "sellsy","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-sellsy"></i></a></li>
+              <li role="item" data-metadata='{"name": "share-alt","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-share-alt"></i></a></li>
+              <li role="item" data-metadata='{"name": "share-alt-square","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-share-alt-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "shirtsinbulk","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-shirtsinbulk"></i></a></li>
+              <li role="item" data-metadata='{"name": "simplybuilt","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-simplybuilt"></i></a></li>
+              <li role="item" data-metadata='{"name": "skyatlas","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-skyatlas"></i></a></li>
+              <li role="item" data-metadata='{"name": "skype","category": "brand","tag": ["social","im"]}'><a href=""><i
+                    class="fa fa-skype"></i></a></li>
+              <li role="item" data-metadata='{"name": "slack","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-slack"></i></a></li>
+              <li role="item" data-metadata='{"name": "slideshare","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-slideshare"></i></a></li>
+              <li role="item" data-metadata='{"name": "soundcloud","category": "brand","tag": ["social","media"]}'><a
+                  href=""><i class="fa fa-soundcloud"></i></a></li>
+              <li role="item" data-metadata='{"name": "spotify","category": "brand","tag": ["social","media","music"]}'>
+                <a href=""><i class="fa fa-spotify"></i></a>
+              </li>
+              <li role="item" data-metadata='{"name": "stack-exchange","category": "brand","tag": ["social","dev"]}'><a
+                  href=""><i class="fa fa-stack-exchange"></i></a></li>
+              <li role="item" data-metadata='{"name": "stack-overflow","category": "brand","tag": ["social","dev"]}'><a
+                  href=""><i class="fa fa-stack-overflow"></i></a></li>
+              <li role="item" data-metadata='{"name": "steam","category": "brand","tag": ["social","game"]}'><a
+                  href=""><i class="fa fa-steam"></i></a></li>
+              <li role="item" data-metadata='{"name": "steam-square","category": "brand","tag": ["social","game"]}'><a
+                  href=""><i class="fa fa-steam-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "stumbleupon","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-stumbleupon"></i></a></li>
+              <li role="item" data-metadata='{"name": "stumbleupon-circle","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-stumbleupon-circle"></i></a></li>
+              <li role="item" data-metadata='{"name": "tencent-weibo","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-tencent-weibo"></i></a></li>
+              <li role="item" data-metadata='{"name": "trello","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-trello"></i></a></li>
+              <li role="item" data-metadata='{"name": "tripadvisor","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-tripadvisor"></i></a></li>
+              <li role="item" data-metadata='{"name": "tumblr","category": "brand","tag": [""]}'><a href="social"><i
+                    class="fa fa-tumblr"></i></a></li>
+              <li role="item" data-metadata='{"name": "tumblr-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-tumblr-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "twitch","category": "brand","tag": ["social","media","game"]}'><a
+                  href=""><i class="fa fa-twitch"></i></a></li>
+              <li role="item" data-metadata='{"name": "twitter","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-twitter"></i></a></li>
+              <li role="item" data-metadata='{"name": "twitter-square","category": "brand","tag": ["social"]}'><a
+                  href=""><i class="fa fa-twitter-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "viacoin","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-viacoin"></i></a></li>
+              <li role="item" data-metadata='{"name": "vimeo","category": "brand","tag": ["social","media","video"]}'><a
+                  href=""><i class="fa fa-vimeo"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "vimeo-square","category": "brand","tag": ["social","media","video"]}'><a
+                  href=""><i class="fa fa-vimeo-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "vine","category": "brand","tag": ["social","media","video"]}'><a
+                  href=""><i class="fa fa-vine"></i></a></li>
+              <li role="item" data-metadata='{"name": "vk","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-vk"></i></a></li>
+              <li role="item" data-metadata='{"name": "wechat","category": "brand","tag": ["social","im"]}'><a
+                  href=""><i class="fa fa-wechat"></i></a></li>
+              <li role="item" data-metadata='{"name": "weibo","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-weibo"></i></a></li>
+              <li role="item" data-metadata='{"name": "weixin","category": "brand","tag": ["social","im"]}'><a
+                  href=""><i class="fa fa-weixin"></i></a></li>
+              <li role="item" data-metadata='{"name": "whatsapp","category": "brand","tag": ["social","im"]}'><a
+                  href=""><i class="fa fa-whatsapp"></i></a></li>
+              <li role="item" data-metadata='{"name": "wikipedia-w","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-wikipedia-w"></i></a></li>
+              <li role="item" data-metadata='{"name": "windows","category": "brand","tag": ["platform"]}'><a href=""><i
+                    class="fa fa-windows"></i></a></li>
+              <li role="item" data-metadata='{"name": "wordpress","category": "brand","tag": ["dev","cms"]}'><a
+                  href=""><i class="fa fa-wordpress"></i></a></li>
+              <li role="item" data-metadata='{"name": "xing","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-xing"></i></a></li>
+              <li role="item" data-metadata='{"name": "xing-square","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-xing-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "combinator","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-y-combinator"></i></a></li>
+              <li role="item" data-metadata='{"name": "combinator-square","category": "brand","tag": [""]}'><a
+                  href=""><i class="fa fa-y-combinator-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "yahoo","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-yahoo"></i></a></li>
+              <li role="item" data-metadata='{"name": "yc","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-yc"></i></a></li>
+              <li role="item" data-metadata='{"name": "yc-square","category": "brand","tag": [""]}'><a href=""><i
+                    class="fa fa-yc-square"></i></a></li>
+              <li role="item" data-metadata='{"name": "yelp","category": "brand","tag": ["social"]}'><a href=""><i
+                    class="fa fa-yelp"></i></a></li>
+              <li role="item" data-metadata='{"name": "youtube","category": "brand","tag": ["social","media","video"]}'>
+                <a href=""><i class="fa fa-youtube"></i></a>
+              </li>
+              <li role="item"
+                data-metadata='{"name": "youtube-play","category": "brand","tag": ["social","media","video"]}'><a
+                  href=""><i class="fa fa-youtube-play"></i></a></li>
+              <li role="item"
+                data-metadata='{"name": "youtube-square","category": "brand","tag": ["social","media","video"]}'><a
+                  href=""><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+
+    $(document).ready(function () {
+      $("#searchbox").keyup(function () {
+
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(),
+          count = 0;
+        // Loop through the comment list
+        $("#list li").each(function () {
+          var metadata = $(this).data("metadata");
+          var regexp = new RegExp(filter, "i");
+          var metadatastring = "";
+          // If the list item does not contain the text phrase fade it out
+          //search everything
+          if (typeof metadata.tag != "undefined") {
+            metadatastring = metadata.tag.join(" ");
+          }
+          if (metadata.name.search(regexp) < 0 && metadata.category.search(regexp) < 0 && metadatastring.search(regexp) < 0) {
+            $(this).hide();
+            // Show the list item if the phrase matches and increase the count by 1
+          }
+          else {
+            $(this).show();
+            count++;
+          }
+        });
+      });
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>
